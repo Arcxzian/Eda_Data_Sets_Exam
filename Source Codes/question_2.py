@@ -7,7 +7,7 @@ def highest_usa_winner_decade(df) -> int | None:
     total_decade = df.groupby('decade').size()
     usa_born = df[df['birth_country'] == 'United States of America']
     usa_decade = usa_born.groupby('decade').size()
-    ratio = (usa_decade / total_decade)
+    ratio = (usa_decade / total_decade).fillna(0)
     return ratio.idxmax()
 
 max_decade_usa: int = highest_usa_winner_decade(nobel_dataframe)
