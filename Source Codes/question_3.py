@@ -1,3 +1,7 @@
+import pandas as pd
+
+nobel_dataframe = pd.read_csv('nobel.csv')
+
 def max_female_laureate_decade(df) -> dict | None:
     df = df.copy()
     df['decade'] = (df['year'] // 10) * 10
